@@ -15,7 +15,5 @@ def home():
 @app.route("/processProgram", methods=['POST'])
 def processPrgram():
     program = request.get_json()["program"]
-    print(program)
     accuracy = getAccuracy(program, 'c++', '10.2.0', 10)
-    accuracy = 50
     return make_response({ "accuracy": accuracy })
