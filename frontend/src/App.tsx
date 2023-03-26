@@ -1,8 +1,12 @@
-import SubmitProgram from './components/submitbot/SubmitProgram';
+import SubmitProgram from './components/submitprogram/SubmitProgram';
+import Banner from './components/banner/Banner';
 
 function App() {
   return (
-    <SubmitProgram></SubmitProgram>
+    <div className="App">
+      <Banner></Banner>
+      <SubmitProgram></SubmitProgram>
+    </div>
   );
 }
 

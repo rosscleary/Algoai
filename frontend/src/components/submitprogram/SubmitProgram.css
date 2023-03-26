@@ -26,3 +26,12 @@
 #textArea {
   padding-bottom: 10px;
 }
+
+#inputField {
+  display: flex;
+  justify-content: space-between;
+  border: 10px solid #888;
+  border-color: red;
+  width: 200px;
+  height: 50px;
+}
