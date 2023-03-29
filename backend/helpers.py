@@ -35,8 +35,8 @@ def testLinearRegressionModel(inputs, outputs):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.5, random_state = 1)
     model = LinearRegression()
     model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    return metrics.accuracy_score(y_test, y_pred)
+    return np.mean(np.round(model.predict(X_test)) == y_test)
+
 
 def getAccuracy(programInformation):
     inputs = []
@@ -46,7 +46,8 @@ def getAccuracy(programInformation):
         outputValue = str(callPiston(programInformation["program"], programInformation["language"], programInformation["version"], inputValue))
         inputs.append(int(inputValue))
         outputs.append(int(outputValue))
-    return {
+    accuraccyData = {
         "randomforest": testRandomForestModel(inputs, outputs),
         "linearregression": testLinearRegressionModel(inputs, outputs)
     }
+    return accuraccyData

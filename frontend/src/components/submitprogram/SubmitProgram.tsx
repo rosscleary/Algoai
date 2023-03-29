@@ -4,7 +4,6 @@ import axios from "axios";
 
 const SubmitProgram = () => {
   const [code, setCode] = useState("");
-  const [accuracy, setAccuracy] = useState("");
   const [inputLow, setInputLow] = useState("");
   const [inputHigh, setInputHigh] = useState("");
   const [runCount, setRunCount] = useState("");
