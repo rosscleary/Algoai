@@ -6,6 +6,12 @@ export interface Program {
     sourceCode: string;
     language: string;
     version: string;
+    inputLow: number;
+    inputHigh: number;
+    runCount: number;
+    randomForestAccuracy: number;
+    linearRegressionAccuracy: number;
+    neuralNetworkAccuracy: number;
 }
 
 const ProgramSummary = () => {
@@ -32,7 +38,14 @@ const ProgramSummary = () => {
                 {programs.map((program) => (
                     <li key={program.id}>
                         <h2>{program.language}</h2>
+                        <h2>{program.version}</h2>
                         <p>{program.sourceCode}</p>
+                        <p>{program.inputLow}</p>
+                        <p>{program.inputHigh}</p>
+                        <p>{program.runCount}</p>
+                        <p>{program.randomForestAccuracy}</p>
+                        <p>{program.linearRegressionAccuracy}</p>
+                        <p>{program.neuralNetworkAccuracy}</p>
                     </li>
                 ))}
             </ul>

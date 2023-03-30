@@ -9,6 +9,7 @@ const SubmitProgram = () => {
   const [runCount, setRunCount] = useState("");
   const [randomForestAccuracy, setRandomForestAccuracy] = useState("");
   const [linearRegressionAccuracy, setLinearRegressionAccuracy] = useState("");
+  const [neuralNetworkAccuracy, setNeuralNetworkAccuracy] = useState("");
 
   const starterCode = `#include <bits/stdc++.h>
   using namespace std;
@@ -21,6 +22,7 @@ const SubmitProgram = () => {
     e.preventDefault();
     setRandomForestAccuracy("Testing program...")
     setLinearRegressionAccuracy("Testing program...")
+    setNeuralNetworkAccuracy("Testing program...")
     await axios
     .post("http://127.0.0.1:5000/processProgram", {
       program: code,
@@ -31,6 +33,7 @@ const SubmitProgram = () => {
     .then(function (response) {
       setRandomForestAccuracy(String(response.data.randomforest));
       setLinearRegressionAccuracy(String(response.data.linearregression));
+      setNeuralNetworkAccuracy(String(response.data.neuralnetwork));
     })
     .catch(function () {
       return "Failed to test program.";
@@ -71,6 +74,8 @@ const SubmitProgram = () => {
       Random Forest Accuracy: { randomForestAccuracy }
       <br></br>
       Linear Regression Accuracy: { linearRegressionAccuracy }
+      <br></br>
+      Neural Network Accuracy: { neuralNetworkAccuracy }
     </form>
   );
 };
